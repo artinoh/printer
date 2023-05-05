@@ -3,7 +3,7 @@
 int main()
 {
 
-    std::string str = "I LOVE YOU MANE!";
+    std::string str = "TESTING";
     char_matrix cm(str);
     cm.print();
     //cm.print_mapped_chars();

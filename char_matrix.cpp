@@ -11,7 +11,7 @@ char_matrix::char_matrix(const std::string& str)
     {
         m_string += tolower(str[i]);
     }
-    m_string += ' ';
+    m_string += "  ";
     populate_chars();
     map_string();
 }
@@ -70,7 +70,7 @@ void char_matrix::print()
         while (m_current_col < m_mapped_chars[0].size())
         {
             add_col_to_print_buffer();
-            usleep(100000);
+            usleep(70000);
             system("clear");
             print_mapped_chars();
             shift_print_buffer();
@@ -433,8 +433,8 @@ void char_matrix::populate_chars()
         {' ', '*', ' ', '*', ' ', '*', ' ', ' '},
         {' ', '*', ' ', '*', ' ', '*', ' ', ' '},
         {' ', '*', ' ', '*', ' ', '*', ' ', ' '},
-        {' ', ' ', ' ', ' ', ' ', '*', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', '*', ' ', '*', ' ', '*', ' ', ' '}
-    }}
+    }};
 
 }
