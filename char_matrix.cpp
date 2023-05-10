@@ -2,30 +2,37 @@
 #include <sstream>
 #include <iomanip>
 #include <unistd.h>
-#include <iostream>
 
-char_matrix::char_matrix(const std::string& str)
+char_matrix::char_matrix()
 {
-    //m_string = to_lower(str);
-    for (int i=0; i<str.length(); i++)
-    {
-        m_string += tolower(str[i]);
-    }
-    m_string += "  ";
     populate_chars();
-    map_string();
+    map_string(get_string());
 }
 
-void char_matrix::map_string()
+std::string char_matrix::get_string()
 {
-    for (int i=0; i< m_string.length(); i++)
+    std::string input_str;
+    std::string result;
+    std::cout << "Enter a string: " << std::endl;
+    std::getline(std::cin, input_str, '\n');
+
+    for (int i=0; i<input_str.length(); i++)
+        result += tolower(input_str[i]);
+
+    result += " ";
+    return result;
+}
+
+void char_matrix::map_string(const std::string& str)
+{
+    for (int i=0; i< str.length(); i++)
     {
-        char c = m_string[i];
+        char c = str[i];
         auto it = m_char_map.find(c);
         if (it != m_char_map.end())
         {
             for (int j=0; j<size; j++)
-            {  
+            {
                 for (int k=0; k<size; k++)
                 {
                     m_mapped_chars[j].push_back(it->second[j][k]);
